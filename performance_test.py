@@ -5,11 +5,13 @@ import numpy as np
 from dataset_sql import SQLDatasetPreload, SQLDataset
 
 
-#Creating a SQLlite database with one table with random entries to test performance
+"""
+Creating an SQLlite databse in order to compare performance between the two datasets, when iterating over the database.
+"""
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
-"""
+
 c.execute("CREATE TABLE example_table (id INTEGER PRIMARY KEY AUTOINCREMENT, x1 REAL, x2 REAL, y REAL)")
 conn.commit()
 
@@ -23,7 +25,7 @@ for obs in data:
     conn.commit()
 
 conn.close()
-"""
+
 
 # Performance when data is not shuffled
 # and preloaded
